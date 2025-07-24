@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* نظام التصميم الشامل - موقع كشف خوارزميات القمار الإلكتروني
+جميع الألوان يجب أن تكون HSL
+*/
+
+@layer base {
+  :root {
+    /* خلفيات متدرجة مبهرة */
+    --background: 220 25% 8%;
+    --foreground: 48 100% 95%;
+
+    --card: 220 30% 12%;
+    --card-foreground: 48 100% 95%;
+
+    --popover: 220 30% 12%;
+    --popover-foreground: 48 100% 95%;
+
+    /* ألوان أساسية قوية */
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 84% 65%;
+
+    --secondary: 48 100% 50%;
+    --secondary-foreground: 220 25% 8%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 280 100% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 25%;
+    --input: 220 20% 15%;
+    --ring: 0 84% 55%;
+
+    /* ألوان تحذيرية */
+    --warning: 38 100% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    /* تدرجات مخصصة */
+    --gradient-danger: linear-gradient(135deg, hsl(0 84% 55%), hsl(0 84% 35%));
+    --gradient-warning: linear-gradient(135deg, hsl(38 100% 55%), hsl(48 100% 50%));
+    --gradient-primary: linear-gradient(135deg, hsl(0 84% 55%), hsl(280 100% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 25% 8%), hsl(220 30% 15%));
+    --gradient-card: linear-gradient(135deg, hsl(220 30% 12%), hsl(220 35% 18%));
+    
+    /* ظلال متوهجة */
+    --shadow-danger: 0 10px 40px hsl(0 84% 55% / 0.3);
+    --shadow-warning: 0 10px 40px hsl(48 100% 50% / 0.3);
+    --shadow-glow: 0 0 50px hsl(0 84% 55% / 0.4);
+    --shadow-card: 0 10px 30px hsl(220 25% 8% / 0.5);
+
+    /* انتقالات سلسة */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 48 100% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-lalezar;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+
+  /* خط Lalezar */
+  .font-lalezar {
+    font-family: 'Lalezar', cursive;
+  }
+
+  /* انيميشن للنصوص */
+  .text-glow {
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  /* تأثيرات خاصة */
+  .blur-effect {
+    filter: blur(2px);
+    transition: var(--transition-smooth);
+  }
+
+  .blur-effect:hover {
+    filter: blur(0px);
+  }
+
+  /* انيميشن النبضة */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(0 84% 55% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(0 84% 55% / 0.8);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* انيميشن الاهتزاز للتحذير */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .shake-warning {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  /* تدرجات النصوص */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-warning-text {
+    background: var(--gradient-warning);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
